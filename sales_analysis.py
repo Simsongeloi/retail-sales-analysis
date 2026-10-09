@@ -19,6 +19,11 @@ average_sales = total_sales / len(sales)
 highest_region = max(sales, key=sales.get)
 lowest_region = min(sales, key=sales.get)
 
+# Identifying region with Above or Below Average.
+above_average_regions = [region for region, amount in sales.items() if amount > average_sales]
+below_average_regions = [region for region, amount in sales.items() if amount < average_sales]
+
+
 # Display the report
 print("NORTHSTAR RETAIL SALES REPORT")
 print("-----------------------------")
@@ -31,3 +36,5 @@ print(f"Total Sales: ${total_sales:,.2f}")
 print(f"Average Sales: ${average_sales:,.2f}")
 print(f"Highest Performing Region: {highest_region} (${sales[highest_region]:,.2f})")
 print(f"Lowest Performing Region: {lowest_region} (${sales[lowest_region]:,.2f})")
+print(f"Regions Above Average: {', '.join(above_average_regions)}")
+print(f"Regions Below Average: {', '.join(below_average_regions)}")
