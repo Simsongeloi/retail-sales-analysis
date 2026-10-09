@@ -15,6 +15,10 @@ with open("sales_data.csv", "r") as file:
 total_sales = sum(sales.values())
 average_sales = total_sales / len(sales)
 
+# Identify highest and lowest performing regins
+highest_region = max(sales, key=sales.get)
+lowest_region = min(sales, key=sales.get)
+
 # Display the report
 print("NORTHSTAR RETAIL SALES REPORT")
 print("-----------------------------")
@@ -25,3 +29,5 @@ for region, amount in sales.items():
 print("-----------------------------")
 print(f"Total Sales: ${total_sales:,.2f}")
 print(f"Average Sales: ${average_sales:,.2f}")
+print(f"Highest Performing Region: {highest_region} (${sales[highest_region]:,.2f})")
+print(f"Lowest Performing Region: {lowest_region} (${sales[lowest_region]:,.2f})")
